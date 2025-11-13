@@ -74,23 +74,16 @@ checksum = "462eeb75aeb73aea900253ce739c8e18a67423fadf006037cd3ff27e82748a06"
 name = "verus-test"
 version = "0.1.0"
 dependencies = [
- "verus_builtin",
- "verus_builtin_macros",
- "verus_state_machines_macros",
  "vstd",
 ]
 
 [[package]]
 name = "verus_builtin"
 version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9d00c22a221fbf8b3398002ebdd1c89017e5381c2f05d6933a3706d87e90e14"
 
 [[package]]
 name = "verus_builtin_macros"
-version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4725e5f5c417d90aa8ac92b47daea50b8494874390491b9a957e2f8ed3fe05d7"
+version = "0.0.0-2025-11-10-1957"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -102,9 +95,7 @@ dependencies = [
 
 [[package]]
 name = "verus_prettyplease"
-version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f62091543498033a2d17682164c789de934c42bcdc8ff497fb381c995f1cad5"
+version = "0.0.0-2025-11-10-1957"
 dependencies = [
  "proc-macro2",
  "verus_syn",
@@ -112,9 +103,7 @@ dependencies = [
 
 [[package]]
 name = "verus_state_machines_macros"
-version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "734a9a8e44ddb3cf61dd80de4aee6f3cf6f46db25ad0e0b381e11d0ee8f1e077"
+version = "0.0.0-2025-11-10-1957"
 dependencies = [
  "indexmap",
  "proc-macro2",
@@ -124,9 +113,7 @@ dependencies = [
 
 [[package]]
 name = "verus_syn"
-version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c30b28d965c1c0259f28a4813e1c393f126940a1051870ef75d668860a2fd0bb"
+version = "0.0.0-2025-11-10-1957"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -135,9 +122,7 @@ dependencies = [
 
 [[package]]
 name = "vstd"
-version = "0.0.0-2025-08-12-1837"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9b5f531340ad04fc039853c28cfe984b7baa3982aba0d37dfac01406e4d9f10f"
+version = "0.0.0-2025-11-10-1957"
 dependencies = [
  "verus_builtin",
  "verus_builtin_macros",

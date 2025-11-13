@@ -16,6 +16,17 @@ spec fn add_vec_spec(v: Seq<int>) -> int
     }
 }
 
+proof fn suffix_is_subset<A>(p: Seq<A>, s: Seq<A>)
+    requires p.is_suffix_of(s),
+    ensures p.to_multiset().subset_of(s.to_multiset()),
+{
+    let pr = p.reverse();
+    let sr = s.reverse();
+    prefix_is_subset(pr, sr);
+    assert(pr.to_multiset() =~= p.to_multiset()) by { p.lemma_reverse_to_multiset() };
+    assert(sr.to_multiset() =~= s.to_multiset()) by { s.lemma_reverse_to_multiset() };
+}
+
 proof fn prefix_is_subset<A>(p: Seq<A>, s: Seq<A>)
     requires p.is_prefix_of(s),
     ensures p.to_multiset().subset_of(s.to_multiset()),
@@ -59,10 +70,10 @@ fn add_vec(v: &Vec<u64>) -> (ret: Option<u64>)
     )
 {
     let mut sum: u64 = 0;
-    for i in iter:0..v.len()
+    let mut i = 0;
+    while i < v.len()
         invariant
-            i >= 0,
-            i <= v.len(),
+            0 <= i <= v.len(),
             sum == add_vec_spec(cast_vec_to_seq(v).subrange(0, i as int)),
         decreases
             v.len() - i
@@ -86,6 +97,7 @@ fn add_vec(v: &Vec<u64>) -> (ret: Option<u64>)
                 return None;
             }
         }
+        i += 1;
     }
     assert(cast_vec_to_seq(v) =~= cast_vec_to_seq(v).subrange(0, v.len() as int));
     Some(sum)
